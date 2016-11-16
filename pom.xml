@@ -5,7 +5,7 @@
   <artifactId>hari-webapp</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>hari-webapp Maven Webapp</name>
+  <name>hari-webapp</name>
   <url>http://maven.apache.org</url>
 <properties>
     <spring.version>3.2.2.RELEASE</spring.version>
@@ -59,9 +59,9 @@
     </dependency>
   </dependencies>
 
-  <build>
+<build>
     <finalName>hari-webapp</finalName>
- <plugins>
+  <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -71,7 +71,7 @@
                 <target>${java-version}</target>
             </configuration>
         </plugin>
-        <plugin>
+	<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
             <executions>
@@ -89,8 +89,8 @@
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>tomcat-maven-plugin</artifactId>
             <configuration>
-                <server>Apache_Tomcat_7_x86</server>
-                <warFile>${project.build.directory}/HelloWorld-0.0.1-SNAPSHOT.war</warFile>
+                <server>tomcat7</server>
+    <warFile>${project.build.directory}/HelloWorld-0.0.1-SNAPSHOT.war</warFile>
             </configuration>
         </plugin>
         <plugin>
@@ -101,6 +101,13 @@
                 <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
             </configuration>
         </plugin>
+ <plugin>
+            <inherited>true</inherited>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <configuration>
+              <updateReleaseInfo>true</updateReleaseInfo>
+            </configuration>
+          </plugin>
     </plugins>
   </build>
 </project>
