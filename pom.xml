@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mycompany.app</groupId>
   <artifactId>hari-webapp</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.0.1-SNAPSHOT</version>
   <name>hari-webapp</name>
 
   <url>http://maven.apache.org</url>
@@ -38,50 +37,49 @@
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-core</artifactId>
-        <version>2.0</version>
+        <version>${spring.version}</version>
     </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-beans</artifactId>
-        <version>2.0</version>
+        <version>${spring.version}</version>
     </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId>
-        <version>2.0</version>
+        <version>${spring.version}</version>
     </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-web</artifactId>
-        <version>2.0</version>
+        <version>${spring.version}</version>
     </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
-        <version>2.0</version>
+        <version>${spring.version}</version>
     </dependency>
   </dependencies>
 
 <build>
-    
+    <finalName>hari-webapp</finalName>
   <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>2.3.2</version>
             <configuration>
-                <source>1.7</source>
-                <target>1.7</target>
+                <source>${java-version}</source>
+                <target>${java-version}</target>
             </configuration>
         </plugin>
 	<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
-		<version>2.0</version>
             <executions>
                 <execution>
                     <id>install</id>
@@ -98,52 +96,22 @@
             <artifactId>tomcat-maven-plugin</artifactId>
 		<version>2.3</version>
             <configuration>
-                <server>Apache Tomcat/7.0.72</server>
-    <warFile>/home/ec2-user/firstproject/hari-webapp/hari/target
-hari-webapp.war</warFile>
+                <server>tomcat7</server>
+    <warFile>${project.build.directory}/HelloWorld-0.0.1-SNAPSHOT.war</warFile>
             </configuration>
 </plugin>
 
- <!--  <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>1.1.0.Alpha11</version>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-</plugin>   
-<plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>1.1.0.Alpha11</version>
-<executions>
-	    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-            </executions>    
-                      
-</plugin>
--->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
             <version>2.3</version>
             <configuration>
-                <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+          i      <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
             </configuration>
         </plugin>
 
  <plugin>
             <inherited>true</inherited>
-	<groupId>org.apache.maven.deploy.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
 		<version>2.3</version>
             <configuration>
@@ -152,7 +120,5 @@ hari-webapp.war</warFile>
           </plugin>
 
 </plugins>
-<finalName>hari-webapp</finalName>
-
   </build>
 </project>
