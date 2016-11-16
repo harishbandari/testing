@@ -6,6 +6,7 @@
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>hari-webapp</name>
+<scope>test</scope>
   <url>http://maven.apache.org</url>
 <properties>
     <spring.version>3.2.2.RELEASE</spring.version>
