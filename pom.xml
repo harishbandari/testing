@@ -98,11 +98,11 @@
 		<version>2.3</version>
             <configuration>
                 <server>tomcat7</server>
-    <warFile>${project.build.directory}/HelloWorld-0.0.1-SNAPSHOT.war</warFile>
+    <warFile>${project.build.directory}/HelloWorld-hari-webapp.war</warFile>
             </configuration>
 </plugin>
 
-   <plugin>
+ <!--  <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>1.1.0.Alpha11</version>
@@ -127,12 +127,9 @@
                         </goals>
                     </execution>
             </executions>    
-            <configuration>
-                    <server-groups>
-                        <server-group>main-server-group</server-group>
-                    </server-groups>
-                </configuration>           
+                      
 </plugin>
+-->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
