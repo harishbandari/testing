@@ -38,49 +38,50 @@
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-core</artifactId>
-        <version>${spring.version}</version>
+        <version>2.0</version>
     </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-beans</artifactId>
-        <version>${spring.version}</version>
+        <version>2.0</version>
     </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId>
-        <version>${spring.version}</version>
+        <version>2.0</version>
     </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-web</artifactId>
-        <version>${spring.version}</version>
+        <version>2.0</version>
     </dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
-        <version>${spring.version}</version>
+        <version>2.0</version>
     </dependency>
   </dependencies>
 
 <build>
-    <finalName>hari-webapp</finalName>
+    
   <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>2.3.2</version>
             <configuration>
-                <source>${java-version}</source>
-                <target>${java-version}</target>
+                <source>1.7</source>
+                <target>1.7</target>
             </configuration>
         </plugin>
 	<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
+		<version>2.0</version>
             <executions>
                 <execution>
                     <id>install</id>
@@ -97,8 +98,9 @@
             <artifactId>tomcat-maven-plugin</artifactId>
 		<version>2.3</version>
             <configuration>
-                <server>tomcat7</server>
-    <warFile>${project.build.directory}/HelloWorld-hari-webapp.war</warFile>
+                <server>Apache Tomcat/7.0.72</server>
+    <warFile>/home/ec2-user/firstproject/hari-webapp/hari/target
+hari-webapp.war</warFile>
             </configuration>
 </plugin>
 
@@ -141,6 +143,7 @@
 
  <plugin>
             <inherited>true</inherited>
+	<groupId>org.apache.maven.deploy.plugins</groupId>
             <artifactId>maven-deploy-plugin</artifactId>
 		<version>2.3</version>
             <configuration>
@@ -149,5 +152,7 @@
           </plugin>
 
 </plugins>
+<finalName>hari-webapp</finalName>
+
   </build>
 </project>
