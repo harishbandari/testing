@@ -10,7 +10,13 @@
   <url>http://maven.apache.org</url>
 <properties>
     <spring.version>3.2.2.RELEASE</spring.version>
-</properties>
+     <maven.tomcat.url>http://ec2-52-23-150-82.compute-1.amazonaws.com:9999/manager/text</maven.tomcat.url>
+     <maven.tomcat.server>TomcatServer</maven.tomcat.server><!-- must configurate in file settings.xml id server user and password -->
+      <maven.tomcat.tag>${project.artifactId}</maven.tomcat.tag>
+      <maven.tomcat.update>true</maven.tomcat.update>
+     <maven.tomcat.path>/${project.build.finalName}</maven.tomcat.path>
+     </properties>
+   
 
   <dependencies>
  
@@ -94,7 +100,8 @@
                 <server>tomcat7</server>
     <warFile>${project.build.directory}/HelloWorld-0.0.1-SNAPSHOT.war</warFile>
             </configuration>
-        </plugin>
+</plugin>
+<!--
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
@@ -103,6 +110,7 @@
                 <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
             </configuration>
         </plugin>
+
  <plugin>
             <inherited>true</inherited>
             <artifactId>maven-deploy-plugin</artifactId>
@@ -111,6 +119,13 @@
               <updateReleaseInfo>true</updateReleaseInfo>
             </configuration>
           </plugin>
-    </plugins>
+    
+	<plugin>
+<groupid>org.apache.tomcat.maven</groupid>
+<artifactid>tomcat7-maven-plugin</artifactid>
+<version>2.1</version>
+</plugin>
+-->
+</plugins>
   </build>
 </project>
