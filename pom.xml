@@ -10,7 +10,7 @@
   <url>http://maven.apache.org</url>
 <properties>
     <spring.version>3.2.2.RELEASE</spring.version>
-     <maven.tomcat.url>http://ec2-52-23-150-82.compute-1.amazonaws.com:9999/manager/text</maven.tomcat.url>
+     <maven.tomcat.url>http://ec2-52-23-150-82.compute-1.amazonaws.com:9999/manager/html</maven.tomcat.url>
      <maven.tomcat.server>TomcatServer</maven.tomcat.server><!-- must configurate in file settings.xml id server user and password -->
       <maven.tomcat.tag>${project.artifactId}</maven.tomcat.tag>
       <maven.tomcat.update>true</maven.tomcat.update>
@@ -102,6 +102,37 @@
             </configuration>
 </plugin>
 
+   <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.1.0.Alpha11</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+</plugin>   
+<plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.1.0.Alpha11</version>
+<executions>
+	    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+            </executions>    
+            <configuration>
+                    <server-groups>
+                        <server-group>main-server-group</server-group>
+                    </server-groups>
+                </configuration>           
+</plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
