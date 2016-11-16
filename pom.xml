@@ -101,7 +101,7 @@
     <warFile>${project.build.directory}/HelloWorld-0.0.1-SNAPSHOT.war</warFile>
             </configuration>
 </plugin>
-<!--
+
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
@@ -119,13 +119,7 @@
               <updateReleaseInfo>true</updateReleaseInfo>
             </configuration>
           </plugin>
-    
-	<plugin>
-<groupid>org.apache.tomcat.maven</groupid>
-<artifactid>tomcat7-maven-plugin</artifactid>
-<version>2.1</version>
-</plugin>
--->
+
 </plugins>
   </build>
 </project>
